@@ -1,2 +1,5 @@
+.vscode
 db
 *.db
+*.o
+*.gch
