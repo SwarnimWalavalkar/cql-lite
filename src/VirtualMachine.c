@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
 #include "VirtualMachine.h"
 
@@ -17,7 +18,7 @@ MetaCommandResult do_meta_command(InputBuffer* input_buffer, Table* table) {
 }
 
 ExecuteResult execute_insert(Statement* statement, Table* table) {
-  if (table->num_rows >= TABLE_MAX_ROWS) {
+  if (table->num_rows >= TABLE_MAX_ROWS()) {
     return EXECUTE_TABLE_FULL;
   }
 

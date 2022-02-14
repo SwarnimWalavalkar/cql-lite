@@ -17,19 +17,6 @@
 
 
 int main(int argc, char* argv[]) {
-
-  uint32_t ID_SIZE = size_of_attribute(Row, id);
-  uint32_t AUTHOR_SIZE = size_of_attribute(Row, author);
-  uint32_t TITLE_SIZE = size_of_attribute(Row, title);
-  uint32_t ID_OFFSET = 0;
-  uint32_t AUTHOR_OFFSET = ID_OFFSET + ID_SIZE;
-  uint32_t TITLE_OFFSET = AUTHOR_OFFSET + AUTHOR_SIZE;
-  uint32_t ROW_SIZE = ID_SIZE + AUTHOR_SIZE + TITLE_SIZE;
-
-  uint32_t PAGE_SIZE = 4096;
-  uint32_t ROWS_PER_PAGE = PAGE_SIZE / ROW_SIZE;
-  uint32_t TABLE_MAX_ROWS = ROWS_PER_PAGE * TABLE_MAX_PAGES;
-
   if(argc < 2) {
     printf("Must supply a database filename\n");
     exit(EXIT_FAILURE);
