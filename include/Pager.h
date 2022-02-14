@@ -2,7 +2,6 @@
 #define PAGER_H
 
 #include <stdint.h>
-#include "TABLE_VALUES.h"
 
 typedef struct {
   int file_descriptor;

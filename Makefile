@@ -1,22 +1,31 @@
-OBJS = main.o Repl.o CommandProcessor.o Table.o VirtualMachine.o
+SRC_DIR := src
+OBJ_DIR := obj
+BIN_DIR := bin
 
-db: $(OBJS)
-	gcc -o db $(OBJS)
+CC := gcc
 
-main.o: main.c Controller.c Controller.h
-	gcc -c main.c
+EXE := $(BIN_DIR)/db
+SRC := $(wildcard $(SRC_DIR)/*.c)
+OBJ := $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC))
 
-Repl.o: Repl.c Repl.h
-	gcc -c $^
+# Compiler Flags
+CPPFLAGS := -Iinclude -MMD -MP
+CFLAGS   := -Wall
 
-CommandProcessor.o: CommandProcessor.c CommandProcessor.h
-	gcc -c $^
+.PHONY: all clean
 
-Table.o: Table.c Table.h
-	gcc -c $^
+all: $(EXE)
 
-VirtualMachine.o: VirtualMachine.c VirtualMachine.h Controller.c Controller.h
-	gcc -c $^
+$(EXE): $(OBJ) | $(BIN_DIR)
+	$(CC) $^ -o $@
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
+	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
+
+$(BIN_DIR) $(OBJ_DIR):
+	mkdir -p $@
 
 clean:
-	rm *.o *.gch
+	@$(RM) -rv $(BIN_DIR) $(OBJ_DIR)
+
+-include $(OBJ:.o=.d)

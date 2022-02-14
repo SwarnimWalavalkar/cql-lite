@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include "Controller.h"
 #include "Table.h"
+#include "TABLE_VALUES.h"
 
 Table* db_open(const char* filename) {
   Pager* pager = pager_open(filename);

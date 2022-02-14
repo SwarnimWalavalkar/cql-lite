@@ -1,5 +1,3 @@
 .vscode
-db
-*.db
-*.o
-*.gch
+/obj
+/bin
