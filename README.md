@@ -43,5 +43,5 @@ docker build . -t cql-lite
 Run the image
 
 ```
-docker run -it --rm cql-lite /usr/app/bin/db ./db
+docker run -it --rm cql-lite ./bin/db ./db
 ```
