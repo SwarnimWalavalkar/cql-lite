@@ -16,6 +16,8 @@ MetaCommandResult do_meta_command(InputBuffer* input_buffer, Table* table);
 ExecuteResult execute_statement(Statement* statement, Table* table);
 ExecuteResult execute_insert(Statement* statement, Table* table);
 ExecuteResult execute_select(Statement* statement, Table* table);
+void print_constants();
+void print_leaf_node(void* node);
 
 
 #endif

@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "Table.h"
-#include "TABLE_VALUES.h"
+#include "globals.h"
 
 void print_row(Row* row) {
   printf("(%d, %s, %s)\n", row->id, row->title, row->author);

@@ -7,7 +7,7 @@
 #include <stdint.h>
 #include <unistd.h>
 
-#include "TABLE_VALUES.h"
+#include "globals.h"
 #include "Controller.h"
 #include "Repl.h"
 #include "CommandProcessor.h"
